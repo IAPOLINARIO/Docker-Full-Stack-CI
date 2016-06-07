@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<hudson.plugins.memegen.MemeNotifier_-DescriptorImpl plugin="memegen@0.5.1">
+  <buildDescriptionEnabled>true</buildDescriptionEnabled>
+  <smemes>
+    <hudson.plugins.memegen.Meme>
+      <generatorID>0</generatorID>
+      <imageID>0</imageID>
+      <parsed>false</parsed>
+      <identifier>10 Guy</identifier>
+      <upperText>I don&apos;t always commit</upperText>
+      <lowerText>But when I do, I win</lowerText>
+    </hudson.plugins.memegen.Meme>
+  </smemes>
+  <fmemes>
+    <hudson.plugins.memegen.Meme>
+      <generatorID>0</generatorID>
+      <imageID>0</imageID>
+      <parsed>false</parsed>
+      <identifier>10 Guy</identifier>
+      <upperText>I don&apos;t always commit</upperText>
+      <lowerText>But when I do, I break the build</lowerText>
+    </hudson.plugins.memegen.Meme>
+  </fmemes>
+</hudson.plugins.memegen.MemeNotifier_-DescriptorImpl>

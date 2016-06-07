@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jenkins.model.ArtifactManagerConfiguration>
+  <artifactManagerFactories>
+    <org.jenkinsci.plugins.compress__artifacts.CompressingArtifactManagerFactory plugin="compress-artifacts@1.7"/>
+  </artifactManagerFactories>
+</jenkins.model.ArtifactManagerConfiguration>

@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<hudson.plugins.emailext.ExtendedEmailPublisherDescriptor plugin="email-ext@2.41.3">
+  <smtpAuthUsername>AKIAJ6MI57NTC3J5P46A</smtpAuthUsername>
+  <smtpAuthPassword>6yyMNG2qmCPxYHk57AmYj7XvqXc/zdNW4j1gGSqA3k2GDV5qR4Jk4pzncuB3Z9/7S64RbKCVN8awBhb3WpxP+w==</smtpAuthPassword>
+  <smtpHost>email-smtp.us-west-2.amazonaws.com</smtpHost>
+  <useSsl>false</useSsl>
+  <smtpPort>25</smtpPort>
+  <charset>UTF-8</charset>
+  <defaultContentType>text/plain</defaultContentType>
+  <defaultSubject>$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!</defaultSubject>
+  <defaultBody>Hi,&#xd;
+&#xd;
+This email was sent from Jenkins - Rujula for the reason bellow:&#xd;
+&#xd;
+$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:&#xd;
+&#xd;
+Check console output at $BUILD_URL to view the results.&#xd;
+&#xd;
+For more information contact DevOps Team.&#xd;
+&#xd;
+Best Regards,&#xd;
+Jenkins - Rujula</defaultBody>
+  <defaultPresendScript></defaultPresendScript>
+  <defaultPostsendScript></defaultPostsendScript>
+  <defaultClasspath/>
+  <defaultTriggerIds>
+    <string>hudson.plugins.emailext.plugins.trigger.FailureTrigger</string>
+  </defaultTriggerIds>
+  <maxAttachmentSize>-1</maxAttachmentSize>
+  <recipientList>lcontador@ciandt.com</recipientList>
+  <defaultReplyTo>noreply-rujula@ciandt.com</defaultReplyTo>
+  <excludedCommitters></excludedCommitters>
+  <overrideGlobalSettings>true</overrideGlobalSettings>
+  <precedenceBulk>false</precedenceBulk>
+  <debugMode>false</debugMode>
+  <enableSecurity>false</enableSecurity>
+  <requireAdminForTemplateTesting>false</requireAdminForTemplateTesting>
+  <enableWatching>false</enableWatching>
+</hudson.plugins.emailext.ExtendedEmailPublisherDescriptor>

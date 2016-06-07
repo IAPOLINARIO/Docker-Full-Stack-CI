@@ -1,0 +1,68 @@
+### Configura e orquestra todos os serviços necessários para funcionamento do ambiente do projeto ###
+version: '2'
+
+networks:
+    devnetwork:
+        driver: bridge
+        
+services:
+
+    jenkinsbase:
+        build: ../Base/jenkins
+        networks:
+            - devnetwork
+        command: /bin/true
+    
+    jenkins:
+        build: ./jenkins
+        ports: 
+            - "8080:8080"
+            - "50000:50000"
+        networks:
+            - devnetwork
+        volumes:
+            - /srv/docker/jenkins/var/run/docker.sock:/var/run/docker.sock
+            - /srv/docker/jenkins/bin/docker:/usr/bin/docker
+            - /srv/docker/jenkins:/usr/share/jenkins/
+        depends_on:
+            - gitlab
+            - jenkinsbase
+        environment:
+            - SONAR_PORT=9000
+            - SONAR_DB_PORT=5432
+            - GRADLE_HOME= /opt/gradle-2.0
+    gitlab:
+        build: ../Base/gitlab
+        restart: always
+        ports:
+            - "10443:443"
+            - "10080:80"
+            - "10022:22"
+        networks:
+            - devnetwork
+        volumes:
+            - /srv/docker/gitlab/config:/etc/gitlab
+            - /srv/docker/gitlab/logs:/var/log/gitlab
+            - /srv/docker/gitlab/data:/var/opt/gitlab
+            - /srv/docker/gitlab/gitlab:/home/git/data
+    
+   
+# sonar:
+#     build: ./Sonar
+#     ports:
+#         - "9000:9000"
+#         - "5432:5432"
+#     network:
+#         - devnetwork
+#     depend_on:
+#         - sonardb
+#     environment:
+#         - SONARQUBE_JDBC_URL=jdbc:postgresql://sonardb:5432/sonar
+        
+#   sonardb:
+#      build: ./Postgres
+#      networks:
+#          - devnetwork
+#      environment:
+#          - POSTGRES_USER=sonar
+#          - POSTGRES_PASSWORD=sonar

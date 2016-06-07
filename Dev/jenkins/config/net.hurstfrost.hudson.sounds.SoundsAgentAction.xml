@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<net.hurstfrost.hudson.sounds.SoundsAgentAction_-SoundsAgentActionDescriptor plugin="sounds@0.4.3">
+  <globalMute>false</globalMute>
+</net.hurstfrost.hudson.sounds.SoundsAgentAction_-SoundsAgentActionDescriptor>

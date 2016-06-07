@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<org.jenkinsci.plugins.configfiles.custom.CustomConfigProvider plugin="config-file-provider@2.9.3">
+  <configs>
+    <entry>
+      <string>org.jenkinsci.plugins.configfiles.custom.CustomConfig1443122981305</string>
+      <org.jenkinsci.lib.configprovider.model.Config>
+        <id>org.jenkinsci.plugins.configfiles.custom.CustomConfig1443122981305</id>
+        <name>.istanbul.yml</name>
+        <comment></comment>
+        <content></content>
+      </org.jenkinsci.lib.configprovider.model.Config>
+    </entry>
+  </configs>
+</org.jenkinsci.plugins.configfiles.custom.CustomConfigProvider>

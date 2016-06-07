@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<hudson.plugins.gradle.Gradle_-DescriptorImpl plugin="gradle@1.24">
+  <installations>
+    <hudson.plugins.gradle.GradleInstallation>
+      <name>Gradle 2.7</name>
+      <home>C:\Gradle\gradle-2.7</home>
+      <properties/>
+      <gradleHome>C:\Gradle\gradle-2.7</gradleHome>
+    </hudson.plugins.gradle.GradleInstallation>
+  </installations>
+</hudson.plugins.gradle.Gradle_-DescriptorImpl>

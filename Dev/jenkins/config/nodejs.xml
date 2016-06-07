@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jenkins.plugins.nodejs.NodeJSPlugin plugin="nodejs@0.2.1">
+  <installations>
+    <jenkins.plugins.nodejs.tools.NodeJSInstallation>
+      <name>Node Itau</name>
+      <home>c:\program files\nodejs</home>
+      <properties/>
+      <nodeJSHome>c:\program files\nodejs</nodeJSHome>
+    </jenkins.plugins.nodejs.tools.NodeJSInstallation>
+  </installations>
+</jenkins.plugins.nodejs.NodeJSPlugin>
