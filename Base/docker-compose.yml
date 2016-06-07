@@ -6,7 +6,6 @@ networks:
         driver: bridge
         
 services:
-
     jenkins:
         build: ./Dev/jenkins
         ports: 
@@ -43,77 +42,52 @@ services:
         environment:
             - POSTGRES_USER=sonar
             - POSTGRES_PASSWORD=sonar
-            
-    gitlabdb:
-        build: ./Postgres
+
+    postgresql:
+        image: iapolinario/postgressql:latest
         environment:
-            - POSTGRES_USER=gitlab
-            - POSTGRES_PASSWORD=gitlab
-            - POSTGRES_DB=gitlab
-        networks:
-            - devnetwork
-            
+            - DB_USER=gitlab_ci
+            - DB_PASS=password
+            - DB_NAME=gitlab_ci_production
+        volumes:
+            - /srv/docker/gitlab-ci/postgresql:/var/lib/postgresql
+
     redis:
-        build: ./Redis
-        networks:
-            - prodnetwork
-        volumes:
-            - /srv/docker/gitlab/redis:/var/lib/redis
-     
-    gitlab:
-        build: ./Gitlab
-        ports:
-            - "10080:80"
-            - "10022:22"
-        networks:
-            - devnetwork
-        depends_on:
-            - gitlabdb
-            - redis
-        environment:
-            - DB_HOST=db2
-            - DB_NAME=gitlab
-            - DB_USER=gitlab
-            - DB_PASS=gitlab
-            - REDIS_HOST=redis
+      image: iapolinario/redis:latest
+      volumes:
+        - /srv/docker/gitlab-ci/redis:/var/lib/redis
 
-            - TZ=Europe/Madrid
-            - GITLAB_TIMEZONE=Madrid
+    ci:
+      image: iapolinario/gitlab:latest
+      links:
+        - redis:redisio
+        - postgresql:postgresql
+      ports:
+        - "10081:80"
+      environment:
+        - TZ=Asia/Kolkata
+        - GITLAB_URL=http://localhost:10080
+        - GITLAB_APP_ID=
+        - GITLAB_APP_SECRET=
+        - GITLAB_CI_SECRETS_SESSION_KEY_BASE=
+        - GITLAB_CI_SECRETS_DB_KEY_BASE=
+        - GITLAB_CI_HOST=localhost
+        - GITLAB_CI_PORT=10081
+        - GITLAB_CI_EMAIL=ci@example.com
+        - GITLAB_CI_SUPPORT=support@example.com
+        - GITLAB_CI_NOTIFY_ON_BROKEN_BUILDS="true"
+        - GITLAB_CI_NOTIFY_PUSHER=false
+        - GITLAB_CI_BACKUPS=daily
+        - GITLAB_CI_BACKUP_TIME=01:00
+        - SMTP_ENABLED=false
+        - SMTP_DOMAIN=www.example.com
+        - SMTP_HOST=smtp.gmail.com
+        - SMTP_PORT=587
+        - SMTP_USER=mailer@example.com
+        - SMTP_PASS=password
+        - SMTP_STARTTLS=true
+        - SMTP_AUTHENTICATION=login
+      volumes:
+        - /srv/docker/gitlab-ci/gitlab-ci:/home/gitlab_ci/data  
 
-            - GITLAB_SECRETS_DB_KEY_BASE=long-and-random-alphanumeric-string
 
-            - GITLAB_HOST=localhost
-            - GITLAB_PORT=10080
-            - GITLAB_SSH_PORT=10022
-
-            - GITLAB_NOTIFY_ON_BROKEN_BUILDS=true
-            - GITLAB_NOTIFY_PUSHER=false
-
-            - GITLAB_EMAIL=notifications@example.com
-            - GITLAB_EMAIL_REPLY_TO=noreply@example.com
-            - GITLAB_INCOMING_EMAIL_ADDRESS=reply@example.com
-
-            - GITLAB_BACKUPS=daily
-            - GITLAB_BACKUP_TIME=01:00
-
-            - SMTP_ENABLED=false
-            - SMTP_DOMAIN=www.example.com
-            - SMTP_HOST=smtp.gmail.com
-            - SMTP_PORT=587
-            - SMTP_USER=mailer@example.com
-            - SMTP_PASS=password
-            - SMTP_STARTTLS=true
-            - SMTP_AUTHENTICATION=login
-
-            - IMAP_ENABLED=false
-            - IMAP_HOST=imap.gmail.com
-            - IMAP_PORT=993
-            - IMAP_USER=mailer@example.com
-            - IMAP_PASS=password
-            - IMAP_SSL=true
-            - IMAP_STARTTLS=false
-        volumes:
-            - /srv/docker/gitlab/gitlab:/home/git/data     
-            
-            
-            
