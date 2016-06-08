@@ -13,8 +13,9 @@ build-redis: build-ubuntu
 	@$(MAKE) -C ./Base/redis/
 
 build-gitlab: build-ubuntu build-redis build-postgresql  
-	@echo "Iniciando Build Redis..."
-	@$(MAKE) -C ./Base/redis/
+	@echo "Iniciando Build Gitlab..."
+	@$(MAKE) -C ./Base/gitlab/
+	@cd ./Base/gitlab && docker-compose up -d
 
 dev: build-gitlab
 	@echo "Construção de ambiente de desenvolvimento concluída. Enjoy! :)"
