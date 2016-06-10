@@ -1,5 +1,5 @@
 FROM iapolinario/ubuntu:latest
-MAINTAINER ismaelapolinario@hotmail.com
+MAINTAINER Ismael Apolinário <ismaelapolinario@hotmail.com>
 
 ENV GITLAB_VERSION=8.8.3 \
     GITLAB_SHELL_VERSION=2.7.2 \

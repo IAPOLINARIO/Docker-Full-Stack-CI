@@ -1,4 +1,4 @@
-FROM dev_jenkinsbase
+FROM iapolinario/jenkins:latest
 
 USER root
 RUN echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers

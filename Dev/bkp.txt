@@ -1,0 +1,15 @@
+  jenkins:
+        image: iapolinario/jenkins
+        ports: 
+            - "8080:8080"
+            - "50000:50000"
+        networks:
+            - devnetwork
+        volumes:
+            - /srv/docker/jenkins/var/run/docker.sock:/var/run/docker.sock
+            - /srv/docker/jenkins/bin/docker:/usr/bin/docker
+            - /srv/docker/jenkins:/usr/share/jenkins/
+        environment:
+            - SONAR_PORT=9000
+            - SONAR_DB_PORT=5432
+            - GRADLE_HOME= /opt/gradle-2.0

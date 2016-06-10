@@ -1,5 +1,5 @@
 FROM iapolinario/ubuntu:latest
-MAINTAINER ismaelapolinario@hotmail.com
+MAINTAINER Ismael Apolinário <ismaelapolinario@hotmail.com>
 
 ENV REDIS_USER=redis \
     REDIS_DATA_DIR=/var/lib/redis \

@@ -1,5 +1,5 @@
 FROM iapolinario/ubuntu:latest
-MAINTAINER ismaelapolinario@hotmail.com
+MAINTAINER Ismael Apolinário <ismaelapolinario@hotmail.com>
 
 ENV PG_APP_HOME="/etc/docker-postgresql"\
     PG_VERSION=9.4 \

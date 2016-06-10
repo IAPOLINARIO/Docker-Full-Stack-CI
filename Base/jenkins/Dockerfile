@@ -1,5 +1,6 @@
 ###Realiza configuração basica do Jenkins para o contrato###
 FROM jenkins
+MAINTAINER Ismael Apolinário <ismaelapolinario@hotmail.com>
 
 USER root
 

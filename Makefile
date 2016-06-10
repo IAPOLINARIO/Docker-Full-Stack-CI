@@ -15,8 +15,20 @@ build-redis: build-ubuntu
 build-gitlab: build-ubuntu build-redis build-postgresql  
 	@echo "Iniciando Build Gitlab..."
 	@$(MAKE) -C ./Base/gitlab/
-	@cd ./Base/gitlab && docker-compose up -d
 
-dev: build-gitlab
+build-jenkins-base:
+	@echo "Buildando versão base do Jenkins..."
+	@@$(MAKE) -C ./Base/jenkins/
+
+build-sonar: build-postgresql
+	@echo "Buildando sonar..."
+	@@$(MAKE) -C ./Base/sonar/
+
+build-jenkins-dev: build-sonar 
+	@echo "Buildando Jenkins Dev..."
+	@@$(MAKE) -C ./Base/sonar/
+
+dev: build-jenkins-dev build-sonar build-gitlab
+	@cd ./Dev/ && docker-compose up -d
 	@echo "Construção de ambiente de desenvolvimento concluída. Enjoy! :)"
 
