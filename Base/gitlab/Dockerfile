@@ -1,7 +1,7 @@
 FROM iapolinario/ubuntu:latest
-MAINTAINER Ismael Apolinário <ismaelapolinario@hotmail.com>
+MAINTAINER ismaelapolinario@hotmail.com
 
-ENV GITLAB_VERSION=8.8.3 \
+ENV GITLAB_VERSION=8.8.4 \
     GITLAB_SHELL_VERSION=2.7.2 \
     GITLAB_WORKHORSE_VERSION=0.7.1 \
     GOLANG_VERSION=1.5.3 \

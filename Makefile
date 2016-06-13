@@ -1,6 +1,6 @@
 all: dev
 
-build-ubuntu: 
+build-ubuntu:
 	@echo "Iniciando Build Ubuntu..."
 	@$(MAKE) -C ./Base/ubuntu/
 
@@ -18,17 +18,21 @@ build-gitlab: build-ubuntu build-redis build-postgresql
 
 build-jenkins-base:
 	@echo "Buildando versão base do Jenkins..."
-	@@$(MAKE) -C ./Base/jenkins/
+	@$(MAKE) -C ./Base/jenkins/
 
 build-sonar: build-postgresql
 	@echo "Buildando sonar..."
-	@@$(MAKE) -C ./Base/sonar/
+	@$(MAKE) -C ./Base/sonar/
 
-build-jenkins-dev: build-sonar 
+build-jenkins-dev: build-jenkins-base build-sonar 
 	@echo "Buildando Jenkins Dev..."
-	@@$(MAKE) -C ./Base/sonar/
+	@$(MAKE) -C ./Dev/jenkins/
 
-dev: build-jenkins-dev build-sonar build-gitlab
+build-mysql:  
+	@echo "Buildando Mysql..."
+	@$(MAKE) -C ./Base/mysql/
+
+dev: build-jenkins-dev build-sonar build-gitlab build-mysql
 	@cd ./Dev/ && docker-compose up -d
 	@echo "Construção de ambiente de desenvolvimento concluída. Enjoy! :)"
 
