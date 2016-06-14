@@ -58,6 +58,20 @@ __NOTE__: Please allow a couple of minutes for the applications to start.
 
 You should now have the applications up and ready for testing. If you want to use this project in production, tbe careful.
 
+## Tools
+
+| *Tool* | *Link* | *Credentials* |
+| ------------- | ------------- | ------------- |
+| Jenkins | http://${docker-machine ip default}:18080/ | no login required |
+| Sonar | http://${docker-machine ip default}:19000/ | admin/admin |
+| MySQL | http://${docker-machine ip default}:3306/ | admin/admin123 |
+| GitLab | http://${docker-machine ip default}:10080/ | root/5iveL!fe |
+| Postgres Gitlab | http://${docker-machine ip default}:5432 | gitlab/password |
+| Postgres Sonar | http://${docker-machine ip default}:5433 | sonar/sonar |
+| Redis| http://${docker-machine ip default}:6379 | no login required |
+| Dockercraft| http://${docker-machine ip default}:25565 | no login required |
+
+
 # References
 
 * https://github.com/gitlabhq/gitlabhq
