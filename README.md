@@ -6,6 +6,7 @@
 - [Issues](#issues)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
+- [Tools](#tools)
 - [References](#references)
 
 # Introduction
@@ -58,7 +59,7 @@ __NOTE__: Please allow a couple of minutes for the applications to start.
 
 You should now have the applications up and ready for testing. If you want to use this project in production, tbe careful.
 
-## Tools
+# Tools
 
 | *Tool* | *Link* | *Credentials* |
 | ------------- | ------------- | ------------- |
