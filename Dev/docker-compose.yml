@@ -51,7 +51,7 @@ services:
 
     redis:
         restart: always
-        image: sameersbn/redis:latest
+        image: iapolinario/redis:latest
         command:
         - --loglevel warning
         volumes:
